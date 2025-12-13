@@ -22,7 +22,9 @@ const Contact = () => {
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -40,7 +42,8 @@ const Contact = () => {
               Contact Us
             </h1>
             <p className="text-xl text-primary-foreground/80 leading-relaxed">
-              Have questions or ready to schedule an appointment? We're here to help. Reach out to us today.
+              Have questions or ready to schedule an appointment? We're here to
+              help. Reach out to us today.
             </p>
           </div>
         </div>
@@ -61,33 +64,47 @@ const Contact = () => {
                   {
                     icon: MapPin,
                     title: "Address",
-                    content: "123 Medical Center Drive, Suite 100\nCity, State 12345",
-                    link: "https://maps.google.com",
+                    content:
+                      "Dr. Aditi’s PhysioFit Clinic: Shop no 20, Bansal Plaza, Dr. Aditi’s PhysioFit Clinic, Ravet,Pune, Maharashtra 412101",
+                    link: "https://maps.app.goo.gl/yVk26AiBeeyFdq5j6",
                   },
                   {
                     icon: Phone,
                     title: "Phone",
-                    content: "(555) 123-4567",
-                    link: "tel:+15551234567",
+                    content: "+91 07219289369",
+                    link: "tel:+9107219289369",
                   },
-                  {
-                    icon: Mail,
-                    title: "Email",
-                    content: "info@healthcareclinic.com",
-                    link: "mailto:info@healthcareclinic.com",
-                  },
+                  // {
+                  //   icon: Mail,
+                  //   title: "Email",
+                  //   content: "info@healthcareclinic.com",
+                  //   link: "mailto:info@healthcareclinic.com",
+                  // },
                   {
                     icon: Clock,
                     title: "Hours",
-                    content: "Mon - Fri: 8:00 AM - 6:00 PM\nSat: 9:00 AM - 2:00 PM\nSun: Closed",
+                    content: (
+                      <>
+                        Mon – Sat:
+                        <br />
+                        Morning: 10:00 AM – 01:00 PM
+                        <br />
+                        Evening: 05:00 PM – 09:00 PM
+                        <br />
+                        Sunday: Closed
+                      </>
+                    ),
                   },
+                  ,
                 ].map((item) => (
                   <div key={item.title} className="flex gap-4">
                     <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
                       <item.icon className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-foreground mb-1">{item.title}</h3>
+                      <h3 className="font-semibold text-foreground mb-1">
+                        {item.title}
+                      </h3>
                       {item.link ? (
                         <a
                           href={item.link}
@@ -98,7 +115,9 @@ const Contact = () => {
                           {item.content}
                         </a>
                       ) : (
-                        <p className="text-muted-foreground whitespace-pre-line">{item.content}</p>
+                        <p className="text-muted-foreground whitespace-pre-line">
+                          {item.content}
+                        </p>
                       )}
                     </div>
                   </div>
@@ -106,16 +125,17 @@ const Contact = () => {
               </div>
 
               {/* Google Maps Embed */}
+              {/* Google Maps Embed */}
               <div className="rounded-2xl overflow-hidden border border-border shadow-card">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.9663095343008!2d-74.00425878428698!3d40.74076794379132!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259bf5c1654f3%3A0xc80f9cfce5383d5d!2sGoogle!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3780.378623882226!2d73.754675!3d18.6441493!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b1b91726d477%3A0x62fa68e482662b2d!2sDr.%20Aditi%E2%80%99s%20PhysioFit%20Clinic!5e0!3m2!1sen!2sin!4v1733740000000"
                   width="100%"
                   height="300"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Clinic Location"
+                  title="Dr. Aditi’s PhysioFit Clinic Location"
                 />
               </div>
             </div>
@@ -129,7 +149,10 @@ const Contact = () => {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+                      <label
+                        htmlFor="name"
+                        className="block text-sm font-medium text-foreground mb-2"
+                      >
                         Full Name *
                       </label>
                       <input
@@ -140,11 +163,14 @@ const Contact = () => {
                         onChange={handleChange}
                         required
                         className="w-full px-4 py-3 rounded-lg border border-border bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-smooth"
-                        placeholder="John Doe"
+                        placeholder="Aditi Kulkarni"
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                      <label
+                        htmlFor="email"
+                        className="block text-sm font-medium text-foreground mb-2"
+                      >
                         Email Address *
                       </label>
                       <input
@@ -155,14 +181,17 @@ const Contact = () => {
                         onChange={handleChange}
                         required
                         className="w-full px-4 py-3 rounded-lg border border-border bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-smooth"
-                        placeholder="john@example.com"
+                        placeholder="abc@gmail.com"
                       />
                     </div>
                   </div>
 
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
+                      <label
+                        htmlFor="phone"
+                        className="block text-sm font-medium text-foreground mb-2"
+                      >
                         Phone Number
                       </label>
                       <input
@@ -172,11 +201,14 @@ const Contact = () => {
                         value={formData.phone}
                         onChange={handleChange}
                         className="w-full px-4 py-3 rounded-lg border border-border bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-smooth"
-                        placeholder="(555) 123-4567"
+                        placeholder="+91"
                       />
                     </div>
                     <div>
-                      <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-2">
+                      <label
+                        htmlFor="subject"
+                        className="block text-sm font-medium text-foreground mb-2"
+                      >
                         Subject *
                       </label>
                       <select
@@ -197,7 +229,10 @@ const Contact = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium text-foreground mb-2"
+                    >
                       Message *
                     </label>
                     <textarea
@@ -212,7 +247,12 @@ const Contact = () => {
                     />
                   </div>
 
-                  <Button type="submit" size="lg" className="w-full" variant="hero">
+                  <Button
+                    type="submit"
+                    size="lg"
+                    className="w-full"
+                    variant="hero"
+                  >
                     Send Message
                     <Send className="w-5 h-5" />
                   </Button>
